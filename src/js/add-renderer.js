@@ -8,7 +8,6 @@ document.getElementById("add").onclick = async () => {
     let target = document.getElementById("target").value
     let username = document.getElementById("username").value
     let password = document.getElementById("password").value
-    console.log("\"" + username + "\"")
     if (!target) {
         sendErrorMessage(TARGET)
     } else {
@@ -25,7 +24,8 @@ document.getElementById("add").onclick = async () => {
 }
 
 ipcRenderer.on("close-add", (event) => {
-    remote.getCurrentWindow().close()
+    var window = remote.getCurrentWindow()
+    window.close()
 })
 
 function sendErrorMessage(message) {

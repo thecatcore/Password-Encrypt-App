@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const csvReader = require("csv-parser")
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-const {encrypt, unencrypt} = require("./src/js/crypter.js");
+const {encrypt, unencrypt} = require("./crypter.js");
 
 const userDataPath = app.getPath("userData");
 const passwordsPath = path.join(userDataPath, "passwords.csv")
@@ -23,10 +23,10 @@ async function createWindow () {
         password: ""
     }
 
-    await win.loadFile('login.html')
+    await win.loadFile(path.join(__dirname, '../html/login.html'))
     ipcMain.on("login", async (event, args) => {
         key = args;
-        await win.loadFile("./src/html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         readDatabase(win, key)
     })
 
@@ -35,21 +35,22 @@ async function createWindow () {
             width: 400,
             height: 300,
             webPreferences: {
-            nodeIntegration: true
+                nodeIntegration: true,
+                enableRemoteModule: true
             }
         })
 
-        addWin.loadFile("./src/html/add.html")
+        addWin.loadFile(path.join(__dirname, "../html/add.html"))
     })
 
     ipcMain.on("add", async (event, args) => {
         event.reply("close-add")
-        await win.loadFile("./src/html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         updateDatabase(args, key, win)
     })
 
     ipcMain.on("del-row", async (event, arg) => {
-        await win.loadFile("./src/html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         removeElement(arg.index, key, win)
     })
 }
