@@ -1,12 +1,41 @@
 {
-    "name": "encrypt",
+    "name": "password-encrypt-app",
+    "productName": "Password Encrypt App",
+    "description": "",
+    "author": {
+        "name": "Arthur ROUSSEL",
+        "email": "arthur.koalas@free.fr"
+    },
+    "contributors": [
+        {
+            "name": "László"
+        }
+    ],
+    "private": true,
+    "version": "1.0.0",
     "main": "main.js",
     "dependencies": {
         "csv-parser": "^2.3.3",
-        "csv-writer": "^1.6.0",
+        "csv-writer": "^1.6.0"
+    },
+    "devDependencies": {
+        "electron-builder": "^22.8.1",
         "electron": "^10.1.2"
     },
     "scripts": {
-        "start": "electron main.js"
+        "start": "electron src/js/main.js",
+        "build": "electron-builder"
+    },
+    "build": {
+        "appId": "fr.catcore.password-encrypt-app",
+        "files": [
+            "src/**/*",
+            "node_modules/**/*",
+            "package.json"
+        ],
+        "directories": {
+          "buildResources": "resources"
+        },
+        "publish": null
     }
 }
