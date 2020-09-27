@@ -1,4 +1,5 @@
 const {app, BrowserWindow, ipcMain} = require("electron")
+const { autoUpdater } = require('electron-updater');
 const path = require('path');
 const fs = require('fs');
 const csvReader = require("csv-parser")
@@ -9,13 +10,21 @@ const userDataPath = app.getPath("userData");
 const passwordsPath = path.join(userDataPath, "passwords.csv")
 const passExist = fs.existsSync(passwordsPath);
 
+let win;
+let update = false;
+
 async function createWindow () {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
         nodeIntegration: true
         }
+    })
+
+    win.once('ready-to-show', async () => {
+        let updateCheckResult =  await autoUpdater.checkForUpdatesAndNotify();
+        if (!updateCheckResult) update = true;
     })
 
     let key = {

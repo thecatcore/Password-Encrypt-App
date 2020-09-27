@@ -16,7 +16,8 @@
     "main": "src/js/main.js",
     "dependencies": {
         "csv-parser": "^2.3.3",
-        "csv-writer": "^1.6.0"
+        "csv-writer": "^1.6.0",
+        "electron-updater": "^4.3.5"
     },
     "devDependencies": {
         "electron-builder": "^22.8.1",
@@ -35,7 +36,9 @@
         "directories": {
             "buildResources": "resources"
         },
-        "publish": ["github"],
+        "publish": [
+            "github"
+        ],
         "mac": {
             "category": "public.app-category.utilities",
             "target": {
