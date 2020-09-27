@@ -23,10 +23,10 @@ async function createWindow () {
         password: ""
     }
 
-    await win.loadFile('../html/login.html')
+    await win.loadFile(path.join(__dirname, '../html/login.html'))
     ipcMain.on("login", async (event, args) => {
         key = args;
-        await win.loadFile("../html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         readDatabase(win, key)
     })
 
@@ -40,17 +40,17 @@ async function createWindow () {
             }
         })
 
-        addWin.loadFile("../html/add.html")
+        addWin.loadFile(path.join(__dirname, "../html/add.html"))
     })
 
     ipcMain.on("add", async (event, args) => {
         event.reply("close-add")
-        await win.loadFile("../html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         updateDatabase(args, key, win)
     })
 
     ipcMain.on("del-row", async (event, arg) => {
-        await win.loadFile("../html/index.html")
+        await win.loadFile(path.join(__dirname, "../html/index.html"))
         removeElement(arg.index, key, win)
     })
 }
