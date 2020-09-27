@@ -4,7 +4,6 @@ const fs = require('fs');
 const csvReader = require("csv-parser")
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const {encrypt, unencrypt} = require("./src/js/crypter.js");
-const crypter = require("./src/js/crypter.js");
 
 const userDataPath = app.getPath("userData");
 const passwordsPath = path.join(userDataPath, "passwords.csv")
@@ -79,7 +78,7 @@ function removeElement(rowIndex, key, window) {
             username: "",
             password: ""
         }
-        var deciphered = crypter.unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
+        var deciphered = unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
         list.push(deciphered)
     }).on('end', async () => {
 
@@ -87,7 +86,7 @@ function removeElement(rowIndex, key, window) {
 
         for (var i in list) {
             if (i === rowIndex) continue
-            cipheredList.push(crypter.encrypt(list[i], key))
+            cipheredList.push(encrypt(list[i], key))
         }
 
         let csvWriter = createCsvWriter({
@@ -114,7 +113,7 @@ function updateDatabase(row, key, window) {
             username: "",
             password: ""
         }
-        var deciphered = crypter.unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
+        var deciphered = unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
         list.push(deciphered)
     }).on('end', async () => {
         list.push(row);
@@ -122,7 +121,7 @@ function updateDatabase(row, key, window) {
         let cipheredList = []
 
         for (var i in list) {
-            cipheredList.push(crypter.encrypt(list[i], key))
+            cipheredList.push(encrypt(list[i], key))
         }
 
         let csvWriter = createCsvWriter({
@@ -163,7 +162,7 @@ async function readDatabase(window, key) {
             username: "",
             password: ""
         }
-        var deciphered = crypter.unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
+        var deciphered = unencrypt({target: row.Target, username: row.Username, password: row.Password}, key)
         list.push(deciphered)
     }).on('end', () => {
         console.log("Config read")
