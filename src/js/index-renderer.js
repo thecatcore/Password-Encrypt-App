@@ -1,4 +1,4 @@
-const {ipcRenderer, ipcMain} = require("electron")
+const {ipcRenderer, remote} = require("electron")
 
 function addId() {
     ipcRenderer.send("add-id");
@@ -44,3 +44,7 @@ ipcRenderer.on("update-list", (event, args) => {
         del.appendChild(delButton);
     }
 })
+
+document.getElementById("close-btn").onclick = () => {
+    remote.getCurrentWindow().close()
+}

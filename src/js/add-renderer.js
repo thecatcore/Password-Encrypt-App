@@ -31,3 +31,7 @@ ipcRenderer.on("close-add", (event) => {
 function sendErrorMessage(message) {
     document.getElementById("error_label").innerHTML = message;
 }
+
+document.getElementById("close-btn").onclick = () => {
+    remote.getCurrentWindow().close()
+}
