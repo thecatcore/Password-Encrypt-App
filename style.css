@@ -1,17 +1,126 @@
 body {
+	font-family:Segoe UI Semibold;
     background-color:#202020;
-    color: white;
+    color: #fff;
     text-align: center;
+	-webkit-appearance: none;
+	-moz-appearance:none;
+	appearance:none;
 }
 
-td {
-    color: white;
+table, th, td {
+	color:#fff;
+	border: 3px solid #3E3E3E;
 }
 
-th {
-    color: white;
+.inputfield{
+	color:#fff;
+	margin-bottom:16px;
+	width:312px;
+	height:24px;
+	background-color:#3E3E3E;
+	border-radius: 6px;
+	border:0px;
+	-webkit-appearance: none;
 }
 
-button {
-    color: white;
+.container{
+	background-color:#fff;
+	display:block;
+	max-width:346px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow:0px 3px 6px rgba(0,0,0,0.57); 
 }
+
+.box_header{
+	margin-bottom:13px;
+	display:block;
+	height:25;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color:#2E77FE;
+	margin-left:0px;
+}
+
+.button_regular{
+	margin-bottom:13px;
+	font-size:15px;
+	font-family:Segoe UI Semibold;
+	background-color:#202020;
+	border: 2px solid #2E77FE;
+	border-radius:6px;
+	color:#2E77FE;
+	height:27px;
+	cursor: pointer;
+}
+.button_regular:hover{
+	background-color:#2E77FE;
+	border: 2px solid #2E77FE;
+	border-radius:6px;
+	color:#fff;
+	height:27px;
+}
+.button_regular:active{
+	background-color:#1A38AF;
+	border: 2px solid #1A38AF;
+	border-radius:6px;
+	color:#fff;
+	height:27px;
+}
+
+.button_remove{
+	padding:0px;
+	margin-bottom:13px;
+	margin-top:13px;
+	font-size:15px;
+	font-family:Segoe UI Semibold;
+	background-color:#202020;
+	border: 2px solid #E2114A;
+	border-radius:6px;
+	color:#A1084A;
+	height:32px;
+	width:32px;
+	cursor: pointer;
+}
+.button_remove:hover{
+	background-color:#E2114A;
+	border: 2px solid #E2114A;
+	border-radius:6px;
+	color:#fff;
+	height:32px;
+	width:32px;
+}
+.button_remove:active{
+	background-color:#A1084A;
+	border: 2px solid #A1084A;
+	border-radius:6px;
+	color:#fff;
+	height:32px;
+	width:32px;
+}
+
+.table_regular{
+	width: 100%;
+}
+#buttonZ img:first-child {
+	padding:0px;
+	display: inline-block;
+	-webkit-app-region:none;
+}
+#buttonZ img:last-child {
+	padding:0px;
+	display: none;
+	-webkit-app-region:none;
+}
+#buttonZ:hover img:last-child {
+	padding:0px;
+	display: inline-block;
+	-webkit-app-region:none;
+}
+#buttonZ:hover img:first-child {
+	padding:0px;
+	display: none;
+	-webkit-app-region:none;
+}
+

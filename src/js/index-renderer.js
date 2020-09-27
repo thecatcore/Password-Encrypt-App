@@ -21,10 +21,10 @@ ipcRenderer.on("update-list", (event, args) => {
         type.value = "button"
 
         var classA = document.createAttribute("class")
-        classA.value = "btn btn-primary btn-block btn-lg"
+        classA.value = "button_remove"
 
         var delButton = document.createElement("button");
-        delButton.innerHTML = "Remove"
+        delButton.innerHTML = "X"
         delButton.onclick = () => {
             ipcRenderer.send("del-row", {index: ii})
         }
