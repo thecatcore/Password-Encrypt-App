@@ -13,10 +13,13 @@ const passExist = fs.existsSync(passwordsPath);
 let win;
 let update = false;
 
+var IMG_DIR = '../../src/img/';
+
 async function createWindow () {
     const win = new BrowserWindow({
         width: 366,
-        height: 163,
+        height: 166,
+		icon: path.join(__dirname, IMG_DIR, 'appIcon.png'),
 		frame: false,
 		resizable: false,
 		transparent: true,
