@@ -27,6 +27,7 @@ async function createWindow () {
     ipcMain.on("login", async (event, args) => {
         key = args;
         await win.loadFile(path.join(__dirname, "../html/index.html"))
+        win.setSize(width, height)
         readDatabase(win, key)
     })
 
