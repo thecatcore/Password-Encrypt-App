@@ -1,5 +1,5 @@
 body {
-	font-family:Segoe UI Semibold;
+	font-family:SystemFont;
 	background-color:rgba(0,0,0,0);
     color: #fff;
     text-align: center;
@@ -37,6 +37,8 @@ table, th, td {
 
 .box_header{
 	margin-bottom:13px;
+	padding-top:0px;
+	padding-bottom:0px;
 	display:block;
 	height:25px;
 	border-top-right-radius: 10px;
@@ -44,12 +46,13 @@ table, th, td {
 	background-color:#2E77FE;
 	margin-left:0px;
 	-webkit-app-region:drag;
+	font-size:20px;
 }
 
 .button_regular{
 	margin-bottom:13px;
 	font-size:15px;
-	font-family:Segoe UI Semibold;
+	font-family:SystemFont;
 	background-color:#202020;
 	border: 2px solid #2E77FE;
 	border-radius:6px;
@@ -109,6 +112,11 @@ table, th, td {
 }
 .appfunction_close:hover{
 	background-color:#E2114A;
+}
+
+@font-face {
+  font-family: SystemFont;
+  src: url(../font/segoe-ui-semibold.ttf);
 }
 
 
