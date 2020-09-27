@@ -13,7 +13,7 @@
     ],
     "private": true,
     "version": "1.0.0",
-    "main": "main.js",
+    "main": "src/js/main.js",
     "dependencies": {
         "csv-parser": "^2.3.3",
         "csv-writer": "^1.6.0"
@@ -34,7 +34,7 @@
             "package.json"
         ],
         "directories": {
-          "buildResources": "resources"
+            "buildResources": "resources"
         },
         "publish": null
     }
