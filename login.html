@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <style>
+      body {
+        margin: auto;
+        width: 50%;
+        border: 1px solid white;
+        padding: 10px;
+      }
+    </style>
+    <div>
+        <label id="username_label">Username: </label>
+        <input type="text" id="username" name="username"><br>
+        <label id="password_label">Password: </label>
+        <input type="text" id="password" name="password"><br>
+        <input type="submit" value="Login" id="login">
+        <label id="error_label"></label>
+    </div>
+
+    <script src="./src/js/login-renderer.js"></script>
+  </body>
+</html>
