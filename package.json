@@ -27,7 +27,7 @@
         "build": "electron-builder"
     },
     "build": {
-        "appId": "fr.catcore.password-encrypt-app",
+        "appId": "com.electron.password-encrypt-app",
         "files": [
             "src/**/*",
             "node_modules/**/*",
@@ -36,6 +36,29 @@
         "directories": {
             "buildResources": "resources"
         },
-        "publish": null
+        "publish": ["github"],
+        "mac": {
+            "category": "public.app-category.utilities",
+            "target": {
+                "target": "dmg",
+                "arch": "x64"
+            }
+        },
+        "win": {
+            "target": {
+                "target": "nsis",
+                "arch": "x64"
+            }
+        },
+        "nsis": {
+            "oneClick": false,
+            "perMachine": false,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": true
+        },
+        "linux": {
+            "target": "AppImage",
+            "category": "Utility"
+        }
     }
 }
