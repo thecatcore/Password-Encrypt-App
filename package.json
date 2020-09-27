@@ -16,18 +16,18 @@
     "main": "src/js/main.js",
     "dependencies": {
         "csv-parser": "^2.3.3",
-        "csv-writer": "^1.6.0"
+        "csv-writer": "^1.6.0",
+        "electron-updater": "^4.3.5"
     },
     "devDependencies": {
         "electron-builder": "^22.8.1",
         "electron": "^10.1.2"
     },
     "scripts": {
-        "start": "electron src/js/main.js",
-        "build": "electron-builder"
+        "start": "electron src/js/main.js"
     },
     "build": {
-        "appId": "fr.catcore.password-encrypt-app",
+        "appId": "com.electron.password-encrypt-app",
         "files": [
             "src/**/*",
             "node_modules/**/*",
@@ -36,6 +36,31 @@
         "directories": {
             "buildResources": "resources"
         },
-        "publish": null
+        "publish": [
+            "github"
+        ],
+        "mac": {
+            "category": "public.app-category.utilities",
+            "target": {
+                "target": "dmg",
+                "arch": "x64"
+            }
+        },
+        "win": {
+            "target": {
+                "target": "nsis",
+                "arch": "x64"
+            }
+        },
+        "nsis": {
+            "oneClick": false,
+            "perMachine": false,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": true
+        },
+        "linux": {
+            "target": "AppImage",
+            "category": "Utility"
+        }
     }
 }
