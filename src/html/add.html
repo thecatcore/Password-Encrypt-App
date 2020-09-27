@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
-    <div>
-        <label id="target_label">Target</label>
-        <input type="text" id="target" name="target"><br>
-        <label id="username_label">Username</label>
-        <input type="text" id="username" name="username"><br>
-        <label id="password_label">Password</label>
-        <input type="text" id="password" name="password"><br>
-        <input type="submit" value="Add" id="add">
-        <label id="error_label"></label>
+    <div class="container" style="height:200px;">
+		<div class="box_header" style="">
+			ADD IDENTIFIER
+			<a class="appfunction_close" style="right:8px;">X</a>
+		</div>
+		
+        <input type="text" id="target" name="target" class="inputfield" placeholder="TARGET"><br>
+        <input type="text" id="username" name="username" class="inputfield" placeholder="USERNAME"><br>
+        <input type="text" id="password" name="password" class="inputfield" placeholder="PASSWORD"><br>
+        <input type="submit" value="ADD" id="add" class="button_regular" style="width:94px;">
+        <label id="error_label"></label><br>
     </div>
     <script src="../js/add-renderer.js"></script>
   </body>

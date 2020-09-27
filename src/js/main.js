@@ -11,8 +11,14 @@ const passExist = fs.existsSync(passwordsPath);
 
 async function createWindow () {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 366,
+        height: 163,
+		frame: false,
+		resizable: false,
+		transparent: true,
+		alwaysOnTop: true,
+		maximizable: false,
+		hasShadow: true,
         webPreferences: {
         nodeIntegration: true
         }
@@ -27,14 +33,20 @@ async function createWindow () {
     ipcMain.on("login", async (event, args) => {
         key = args;
         await win.loadFile(path.join(__dirname, "../html/index.html"))
-        win.setSize(width, height)
+        win.setSize(820, 620)
         readDatabase(win, key)
     })
 
     ipcMain.on("add-id", (event) => {
         let addWin = new BrowserWindow({
             width: 400,
-            height: 300,
+            height: 220,
+			frame: false,
+			resizable: false,
+			transparent: true,
+			alwaysOnTop: true,
+			maximizable: false,
+			hasShadow: true,
             webPreferences: {
                 nodeIntegration: true,
                 enableRemoteModule: true
