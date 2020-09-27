@@ -23,8 +23,7 @@
         "electron": "^10.1.2"
     },
     "scripts": {
-        "start": "electron src/js/main.js",
-        "build": "electron-builder"
+        "start": "electron src/js/main.js"
     },
     "build": {
         "appId": "com.electron.password-encrypt-app",
