@@ -1,4 +1,4 @@
-const {ipcRenderer, ipcMain} = require("electron")
+const {ipcRenderer, remote} = require("electron")
 
 function addId() {
     ipcRenderer.send("add-id");
@@ -17,19 +17,26 @@ ipcRenderer.on("update-list", (event, args) => {
 
         const ii = i;
 
-        var type = document.createAttribute("type")
-        type.value = "button"
+        var id = document.createAttribute("id")
+        id.value = "buttonZ"
 
-        var classA = document.createAttribute("class")
-        classA.value = "btn btn-primary btn-block btn-lg"
+        var src1 = document.createAttribute("src")
+        src1.value = "../../src/img/remove_normal.svg"
+        var img1 = document.createElement("img")
+        img1.setAttributeNode(src1)
 
-        var delButton = document.createElement("button");
-        delButton.innerHTML = "Remove"
+        var src2 = document.createAttribute("src")
+        src2.value = "../../src/img/remove_normal.svg"
+        var img2 = document.createElement("img")
+        img2.setAttributeNode(src2)
+
+        var delButton = document.createElement("a");
         delButton.onclick = () => {
             ipcRenderer.send("del-row", {index: ii})
         }
-        delButton.setAttributeNode(type)
-        delButton.setAttributeNode(classA)
+        delButton.setAttributeNode(id)
+        delButton.appendChild(img1)
+        delButton.appendChild(img2)
 
         target.innerHTML = args[i].target
         username.innerHTML = args[i].username
@@ -37,3 +44,7 @@ ipcRenderer.on("update-list", (event, args) => {
         del.appendChild(delButton);
     }
 })
+
+document.getElementById("close-btn").onclick = () => {
+    remote.getCurrentWindow().close()
+}

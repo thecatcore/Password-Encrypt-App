@@ -1,4 +1,4 @@
-const {ipcRenderer} = require("electron")
+const {ipcRenderer, remote} = require("electron")
 
 const USERNAME = "Username needs to be specified";
 const PASSWORD = "Password needs to be specified";
@@ -20,4 +20,8 @@ document.getElementById("login").onclick = async () => {
 
 function sendErrorMessage(message) {
     document.getElementById("error_label").innerHTML = message;
+}
+
+document.getElementById("close-btn").onclick = () => {
+    remote.getCurrentWindow().close()
 }

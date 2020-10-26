@@ -13,12 +13,22 @@ const passExist = fs.existsSync(passwordsPath);
 let win;
 let update = false;
 
+var IMG_DIR = '../../src/img/';
+
 async function createWindow () {
-    win = new BrowserWindow({
-        width: 800,
-        height: 600,
+    const win = new BrowserWindow({
+        width: 366,
+        height: 166,
+		icon: path.join(__dirname, IMG_DIR, 'appIcon.png'),
+		frame: false,
+		resizable: false,
+		transparent: true,
+		alwaysOnTop: true,
+		maximizable: false,
+		hasShadow: true,
         webPreferences: {
-        nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     })
 
@@ -36,13 +46,20 @@ async function createWindow () {
     ipcMain.on("login", async (event, args) => {
         key = args;
         await win.loadFile(path.join(__dirname, "../html/index.html"))
+        win.setSize(820, 620)
         readDatabase(win, key)
     })
 
     ipcMain.on("add-id", (event) => {
         let addWin = new BrowserWindow({
             width: 400,
-            height: 300,
+            height: 220,
+			frame: false,
+			resizable: false,
+			transparent: true,
+			alwaysOnTop: true,
+			maximizable: false,
+			hasShadow: true,
             webPreferences: {
                 nodeIntegration: true,
                 enableRemoteModule: true
