@@ -32,8 +32,7 @@
         "files": [
             "src/**/*",
             "node_modules/**/*",
-            "package.json",
-            "build/icon.png"
+            "package.json"
         ],
         "directories": {
             "buildResources": "resources"
@@ -46,15 +45,13 @@
             "target": {
                 "target": "dmg",
                 "arch": "x64"
-            },
-            "icon":"build/icon.png"
+            }
         },
         "win": {
             "target": {
                 "target": "nsis",
                 "arch": "x64"
-            },
-            "icon":"build/icon.png"
+            }
         },
         "nsis": {
             "oneClick": false,
