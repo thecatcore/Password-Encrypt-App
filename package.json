@@ -46,13 +46,15 @@
             "target": {
                 "target": "dmg",
                 "arch": "x64"
-            }
+            },
+            "icon":"build/icon.png"
         },
         "win": {
             "target": {
                 "target": "nsis",
                 "arch": "x64"
-            }
+            },
+            "icon":"build/icon.png"
         },
         "nsis": {
             "oneClick": false,
@@ -62,7 +64,8 @@
         },
         "linux": {
             "target": "AppImage",
-            "category": "Utility"
+            "category": "Utility",
+            "icon":"build/icon.png"
         },
         "appImage": {}
     }
