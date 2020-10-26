@@ -32,7 +32,8 @@
         "files": [
             "src/**/*",
             "node_modules/**/*",
-            "package.json"
+            "package.json",
+            "build/icon.png"
         ],
         "directories": {
             "buildResources": "resources"
