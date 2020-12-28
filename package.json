@@ -15,13 +15,13 @@
     "version": "1.0.0",
     "main": "src/js/main.js",
     "dependencies": {
-        "csv-parser": "^2.3.3",
-        "csv-writer": "^1.6.0",
-        "electron-updater": "^4.3.5"
+        "csv-parser": "2.3.3",
+        "csv-writer": "1.6.0",
+        "electron-updater": "4.3.5"
     },
     "devDependencies": {
-        "electron-builder": "^22.8.1",
-        "electron": "^10.1.2"
+        "electron-builder": "22.8.1",
+        "electron": "10.1.2"
     },
     "scripts": {
         "start": "electron src/js/main.js",
