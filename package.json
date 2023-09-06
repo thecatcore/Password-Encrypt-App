@@ -21,7 +21,7 @@
     },
     "devDependencies": {
         "electron-builder": "22.8.1",
-        "electron": "10.1.2"
+        "electron": "22.3.21"
     },
     "scripts": {
         "start": "electron src/js/main.js",
